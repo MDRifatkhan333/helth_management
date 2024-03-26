@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helth_management/constants/colors.dart';
+import 'package:helth_management/form/LabTestList.dart';
+import 'package:helth_management/form/appoinment.dart';
 import 'package:helth_management/screens/Appointments.dart';
 import 'package:helth_management/screens/History.dart';
 import 'package:helth_management/screens/LabReports.dart';
@@ -28,7 +30,7 @@ class _DashboardTilesState extends State<DashboardTiles> {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                   colors: [
                     Colors.purple,
                     Colors.pinkAccent,
@@ -45,13 +47,13 @@ class _DashboardTilesState extends State<DashboardTiles> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Welcome ${widget.username},',
-                style: TextStyle(
+                'Welcome ${widget.username}',
+                style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w500,
                     color: Colors.white),
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -77,11 +79,8 @@ class _DashboardTilesState extends State<DashboardTiles> {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) =>
-                                Appointments(userId: widget.userId)));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => Appoinmentform()));
                   },
                   child: Card(
                     margin: const EdgeInsets.all(10),
@@ -93,7 +92,8 @@ class _DashboardTilesState extends State<DashboardTiles> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.home, size: 50, color: primaryColor),
+                          Icon(Icons.note_alt_rounded,
+                              size: 50, color: primaryColor),
                           Text(
                             'Appointments',
                             style: TextStyle(
@@ -107,9 +107,12 @@ class _DashboardTilesState extends State<DashboardTiles> {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => LabTests(userId: widget.userId)));
+                      context,
+                      MaterialPageRoute(
+                        // builder: (_) => LabTests(userId: widget.userId),
+                        builder: (_) => HealthLabTestList(),
+                      ),
+                    );
                   },
                   child: Card(
                     margin: const EdgeInsets.all(10),
@@ -121,7 +124,8 @@ class _DashboardTilesState extends State<DashboardTiles> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.home, size: 50, color: primaryColor),
+                          Icon(Icons.local_pharmacy,
+                              size: 50, color: primaryColor),
                           Text(
                             'Lab Tests',
                             style: TextStyle(
@@ -135,22 +139,23 @@ class _DashboardTilesState extends State<DashboardTiles> {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => Payable(userId: widget.userId)));
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => Payable(userId: widget.userId),
+                      ),
+                    );
                   },
-                  child: Card(
-                    margin: const EdgeInsets.all(10),
+                  child: const Card(
+                    margin: EdgeInsets.all(10),
                     color: cardColor,
                     elevation: 5.0,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.monetization_on,
-                              size: 50, color: primaryColor),
+                          Icon(Icons.payment, size: 50, color: primaryColor),
                           Text(
                             'Payable',
                             style: TextStyle(
@@ -179,7 +184,7 @@ class _DashboardTilesState extends State<DashboardTiles> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.home, size: 50, color: primaryColor),
+                          Icon(Icons.medication, size: 50, color: primaryColor),
                           Text(
                             'Prescriptions',
                             style: TextStyle(
@@ -207,7 +212,8 @@ class _DashboardTilesState extends State<DashboardTiles> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.home, size: 50, color: primaryColor),
+                          Icon(Icons.history_sharp,
+                              size: 50, color: primaryColor),
                           Text(
                             'History',
                             style: TextStyle(
@@ -235,9 +241,10 @@ class _DashboardTilesState extends State<DashboardTiles> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.home, size: 50, color: primaryColor),
+                          Icon(Icons.receipt_long,
+                              size: 50, color: primaryColor),
                           Text(
-                            'Downloads',
+                            'About Us',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           )

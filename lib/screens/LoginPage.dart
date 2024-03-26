@@ -115,30 +115,37 @@ class _LoginPageState extends State<LoginPage> {
                           // login button
                           GestureDetector(
                             onTap: () {
-                              if (_formKey.currentState!.validate()) {
-                                _login().then((value) {
-                                  var res = jsonDecode(value.body);
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      Dashboard(name: 'E-CARE', userId: '1'),
+                                ),
+                              );
+                              // if (_formKey.currentState!.validate()) {
+                              //   _login().then((value) {
+                              //     var res = jsonDecode(value.body);
 
-                                  if (res['error'] == true) {
-                                    Fluttertoast.showToast(
-                                        msg: res['message'],
-                                        backgroundColor: Colors.red[600],
-                                        textColor: Colors.white,
-                                        toastLength: Toast.LENGTH_LONG);
-                                  } else {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            Dashboard(
-                                                name: res['full_name'],
-                                                userId:
-                                                    res['user_id'].toString()),
-                                      ),
-                                    );
-                                  }
-                                });
-                              }
+                              //     if (res['error'] == true) {
+                              //       Fluttertoast.showToast(
+                              //           msg: res['message'],
+                              //           backgroundColor: Colors.red[600],
+                              //           textColor: Colors.white,
+                              //           toastLength: Toast.LENGTH_LONG);
+                              //     } else {
+                              //       Navigator.pushReplacement(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //           builder: (BuildContext context) =>
+                              //               Dashboard(
+                              //                   name: res['full_name'],
+                              //                   userId:
+                              //                       res['user_id'].toString()),
+                              //         ),
+                              //       );
+                              //     }
+                              //   });
+                              // }
                             },
                             child: MyButton(
                               text: 'LOGIN',

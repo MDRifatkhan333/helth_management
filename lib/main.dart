@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //FlutterLogo(size: 100),
+              FlutterLogo(size: 100),
               SizedBox(height: 20),
               Text(
                 'Welcome to ',
@@ -71,7 +71,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
               Text(
                 'Hospital  Management App!',
                 style: TextStyle(
@@ -98,7 +97,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-
               CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
